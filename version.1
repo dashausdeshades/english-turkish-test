@@ -1,0 +1,83 @@
+
+import random
+
+sorular = {
+    "elegant?":
+        ("\na.şık\nb .degisik\nc. garip", "a"),
+    "odd?":
+        ("\na.mutsuz\nb.acı\nc.tuhaf","c"),
+    "flow?":
+        ("\na.akıs\nb.uzun\nc.renkli","a"),
+    "youthful?":
+        ("\na.direnç\nb.dinamik\nc.müteşekkir","b"),
+    "zip?":
+        ("\na.fermuar \nb.rakım \nc.kök","a"),
+    "diminish?":
+        ("\na.menajer \nb.katlamak \nc.azaltmak","c"),
+    "expression?":
+        ("\na.ayrılmak \nb.tutum \nc.yüz ifadesi","c"),
+    "toe?":
+        ("\nayak parmağı \nb.top \nc.tıp","a"),
+    "beg?":
+        ("\na.dilenmek \nb.yalvarmak \nc.geçinmek","b"),
+    "muck?":
+        ("\na.pislik \nb.toprak \nc.kütük","a"),
+    "soaking?":
+        ("\na.takmak \nb.çıkarmak \nc.sırılsıklam","c"),
+    "bound?":
+        ("\na.kıvırmak \nb.yapılması kesin olmak \nc.karasız olmak","b"),
+    "notifiy?":
+        ("\na.haber vermek \nb.not tutmak \nc.kararlaştırmak","a"),
+    "quarrelled?":
+        ("\na.kavnana \nb.kavga \nc.yapı","b"),
+    "cupboard":
+        ("\na.karton bardak \nb.kupa \nc.dolap","c"),
+    "widely?":
+        ("\na.rüzgarlı \nb.soğuk \nc.geniş ölçüde","c"),
+    "directly?":
+        ("\na.aracısız \nb.direk \nc.kapalı","a"),
+    "reasonably?":
+        ("\na.aracısız \nb.makul,uygun \nc.nedenli","b"),
+    "cast?":
+        ("\na.oyuncu seçimi \nb.operatör \nc.kale","a"),
+    "wholemeal?":
+        ("\na.bütün yemek \nb.kepekli \nc.buğday","b"),
+    "catering?":
+        ("\na.izlanda öküzü \nb.yemek hizmeti sunan \nc.oduncu","b"),
+
+
+
+}
+
+
+def soru_sor(sorular):
+
+    item=random.choice(list(sorular.items()))
+    sorular =item[0]
+    (sıklar,cevap) =item[1]
+    print(sorular,sıklar)
+    giriş = input('\nsec \'a\', \'b\', \'c\' or \'d\' cevabın içün\n')
+    return (giriş, cevap)
+
+
+deneme = 0
+for sorular_number in range(999):
+    while True:
+        giriş, cevap = soru_sor(sorular)
+        if giriş not in {'a', 'b', 'c', 'd'}:
+            print('yanlış giriş!!! sadece şıkları seç')
+        elif giriş == cevap:
+            print('dogruu\n')
+            sormayı_durdur = False
+            break
+        elif deneme == 1:
+            print('yanlış!!! şansın bitti\n ')
+            print("yeniden başlamak için uygulamayı kapat bidaha aç orayı daha çözemedim :D")
+            sormayı_durdur = True
+            break
+        else:
+            deneme += 1
+            print('yanlış!!! yeniden dene.\n')
+    if sormayı_durdur:
+        break
+
